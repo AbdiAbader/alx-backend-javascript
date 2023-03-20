@@ -1,9 +1,9 @@
-export default function iterateThroughObject(reportWithIterator) {
-    const report = [];
-    for (const item of reportWithIterator) {
-        report.push(item);
+export default function createIteratorObject(report) {
+  return (function* _() {
+    for (const department of Object.values(report.allEmployees)) {
+      for (const employee of department) {
+        yield employee;
+      }
     }
-    return report;
-    
-
+  }());
 }
