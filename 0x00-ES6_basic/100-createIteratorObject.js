@@ -1,8 +1,9 @@
-const myReport = createReportObject('My Company', 'John Doe', '2023');
-const myIterator = createIteratorObject(myReport);
+export default function iterateThroughObject(reportWithIterator) {
+    const report = [];
+    for (const item of reportWithIterator) {
+        report.push(item);
+    }
+    return report;
+    
 
-let employee = myIterator.next();
-while (!employee.done) {
-  console.log(employee.value);
-  employee = myIterator.next();
 }
