@@ -17,8 +17,11 @@ function countStudents(path) {
         if (!count.has(field)) {
           count.set(field, []);
         }
+        if (field !== 'field' && firstname !== 'firstname')
+        {
         count.get(field).push(firstname);
         total += 1;
+        }
       }).on('end', () => {
              console.log(`Number of students: ${total}`);
             for (const [key, value] of count.entries()) {
