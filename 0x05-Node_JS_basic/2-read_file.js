@@ -1,11 +1,20 @@
 const csv = require('csv-parser');
 const fs = require('fs');
+const { exit } = require('process');
 
 function countStudents(path) {
   const count = new Map();
   let total = 0;
-  try {
+
     const stream = fs.createReadStream(path);
+    if (!fs.existsSync(path)) {
+        throw new Error('Cannot load the database');
+        exit();
+    } else {
+    stream.on('error', () => {
+        throw new Error('Cannot load the database');
+        });
+
     stream.pipe(csv())
       .on('data', (data) => {
         const { field, firstname } = data;
@@ -22,10 +31,9 @@ function countStudents(path) {
             }
             }
         );
-    } catch (error) {
-        throw new Error('Cannot load the database');
-      }
-
+   
     }
 
+   
+}
 module.exports = countStudents;
