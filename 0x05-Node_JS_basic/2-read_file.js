@@ -9,7 +9,7 @@ function countStudents(path) {
     const stream = fs.createReadStream(path);
     if (!fs.existsSync(path)) {
         throw new Error('Cannot load the database');
-        exit();
+       
     } else {
     stream.on('error', () => {
         throw new Error('Cannot load the database');
