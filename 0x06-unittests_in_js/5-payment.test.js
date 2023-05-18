@@ -15,5 +15,6 @@ describe('sendPaymentRequestToApi', () => {
  const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
   expect(sendPaymentRequestToApi(10, 10)).to.equal('The total is: 20');
   expect(calculateNumberStub.calledOnceWithExactly('SUM', 10, 10)).to.be.true;   
+  calculateNumberStub.restore();
 }
 );
