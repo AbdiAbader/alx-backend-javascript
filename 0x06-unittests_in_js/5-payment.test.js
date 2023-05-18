@@ -6,14 +6,14 @@ const sendPaymentRequestToApi = require('./3-payment');
 describe('sendPaymentRequestToApi', () => {
     it('should call calculateNumber', () => {
         const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
-        calculateNumberStub.returns(10);
-        const consoleSpy = sinon.spy(console, 'log');
-        sendPaymentRequestToApi(100, 20);
+     expect(sendPaymentRequestToApi(100, 20)).to.equal('The total is: 10');
         expect(calculateNumberStub.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-        expect(consoleSpy.calledOnceWithExactly('The total is: 10')).to.be.true;
         calculateNumberStub.restore();
-        consoleSpy.restore();
     });
-    
+    });
+    it('should call calculateNumber 2', () => {
+ const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
+  expect(sendPaymentRequestToApi(10, 10)).to.equal('The total is: 20');
+  expect(calculateNumberStub.calledOnceWithExactly('SUM', 10, 10)).to.be.true;   
 }
 );
