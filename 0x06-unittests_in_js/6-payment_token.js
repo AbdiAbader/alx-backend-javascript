@@ -1,6 +1,8 @@
 function getPaymentTokenFromAPI(success) {
-    return success
-      ? Promise.resolve({ data: 'Successful response from the API' })
-      : Promise.reject('Cannot connect to API');
+    if (success === true) {
+        return Promise.resolve({data: 'Successful response from the API'});
+    }
 }
+
+
 module.exports = getPaymentTokenFromAPI;
