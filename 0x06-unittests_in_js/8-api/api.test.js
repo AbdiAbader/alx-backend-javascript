@@ -11,5 +11,10 @@ describe('Index Page', () => {
     const response = await request(app).get('/');
     expect(response.text).toBe('Welcome to the payment system');
   });
+  it('returns incorrect result', async () => {
+    const response = await request(app).get('/a');
+    expect(response.status).toBe(404);
+    
+  }
  
 });
