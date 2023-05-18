@@ -8,6 +8,11 @@ app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.send('Welcome to the payment system');
 });
+app.get('/cart/:id([0-9]+)', (req, res) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'text/plain');
+    res.send(`Payment methods for cart ${req.params.id}`);
+    });
 
 app.listen(port, () => {
   console.log(`API available on localhost port ${port}`);
