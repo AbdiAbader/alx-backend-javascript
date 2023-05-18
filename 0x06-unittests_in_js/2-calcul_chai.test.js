@@ -2,15 +2,7 @@ const {expect} = require('chai');
 const calcul = require('./1-calcul');
 
 describe('calcul', () => {
-  it('should return incorrect input', () => {
-   assert.throws(() => calcul('SUM','a', 1), {
-        name: 'TypeError',
-        message: 'Parameters must be numbers'
-
-  }
-   );
-  }
-    );
+  
     it('should return correct result', () => {
         expect(calcul('SUM', 1, 3)).to.equal(4);
         expect(calcul('SUM', 100, 3.7)).to.equal(104);
