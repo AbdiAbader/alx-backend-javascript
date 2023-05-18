@@ -47,6 +47,48 @@ describe('calcul', () => {
         });
         }
     );
+ it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE',1), {
+        name: 'TypeError'
+
+    });
+    }
+);
+it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE'), {
+        name: 'TypeError'
+
+    });
+    }
+);
+it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE',1, 'a'), {
+        name: 'TypeError'
+
+    });
+    }
+);
+it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE',1, ''), {
+        name: 'TypeError'
+
+    });
+    }
+);
+it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE',1, undefined), {
+        name: 'TypeError'
+
+    });
+    }
+);
+it('should throw a TypeError', () => {
+    assert.throws(() => calcul('DIVIDE',undefined, 1), {
+        name: 'TypeError'
+
+    });
+    }
+);
 }   
 );
     
