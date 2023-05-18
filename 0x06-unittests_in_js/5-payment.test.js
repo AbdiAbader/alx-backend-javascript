@@ -15,17 +15,14 @@ describe('sendPaymentRequestToApi', () => {
     expect(consoleSpy.calledOnce).to.be.true;
     consoleSpy.restore();
   });
-    it('should call calculateNumber', () => {
-        const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
-     expect(sendPaymentRequestToApi(100, 20)).to.equal('The total is: 10');
-        expect(calculateNumberStub.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-        
-    });
-    });
-    it('should call calculateNumber 2', () => {
- const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
-  expect(sendPaymentRequestToApi(10, 10)).to.equal('The total is: 20');
-  expect(calculateNumberStub.calledOnceWithExactly('SUM', 10, 10)).to.be.true;   
- 
+  it('with 100 and 20 -> 120', () => {
+    sendPaymentRequestToApi(100, 20);
+    expect(consoleSpy.calledWith('The total is: 120')).to.be.true;
+  });
+
+  it('with 10 and 10 -> 20', () => {
+    sendPaymentRequestToApi(10, 10);
+    expect(consoleSpy.calledWith('The total is: 20')).to.be.true;
+  });
 }
 );
