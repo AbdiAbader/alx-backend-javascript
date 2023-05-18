@@ -9,7 +9,8 @@
   "author": "Abdi A",
   "license": "ISC",
   "dependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.4"
   },
   "devDependencies": {
     "chai": "^4.3.7"
