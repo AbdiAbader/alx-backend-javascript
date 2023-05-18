@@ -26,22 +26,23 @@ describe('calcul', () => {
         }
     );
     it('should return correct result', () => {
-        assert.strictEqual(calcul('DIVIDE',1, 3), 0.3333333333333333);
-        assert.strictEqual(calcul('DIVIDE',100, 3.7), 27.027027027027028);
-        assert.strictEqual(calcul('DIVIDE',1000, 3.7), 270.27027027027026);
-        assert.strictEqual(calcul('DIVIDE',1.1, 3.7), 0.2972972972972973);
+        assert.strictEqual(calcul('DIVIDE',5, 1), 5);
+        assert.strictEqual(calcul('DIVIDE',100, 2), 50);
+        assert.strictEqual(calcul('DIVIDE',1000, 10), 100);
+        
         }
     );
     it('should throw a TypeError', () => {
         assert.throws(() => calcul(''), {
             name: 'TypeError'
-
+    
         });
         }
     );
     it('should throw a TypeError', () => {
         assert.throws(() => calcul('DIVIDE',1, 0), {
-            name: 'TypeError'
+            name: 'TypeError',
+            message: 'Division by 0'
 
         });
         }

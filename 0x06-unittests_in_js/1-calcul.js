@@ -5,11 +5,11 @@ function calculateNumber(type, a, b) {
     if (isNaN(a) || isNaN(b)) {
       throw TypeError
       }
-      if (a === undefined || b === undefined) {
+      if (a === undefined || b === undefined || type === undefined) {
           throw TypeError
       }
-      return Math.round(a) + Math.round(b)
-  }
+     
+  
   if (type === 'SUM') {
     return Math.round(a) + Math.round(b)
   }
@@ -18,10 +18,10 @@ function calculateNumber(type, a, b) {
     }   
     if (type === 'DIVIDE') {
         if (Math.round(b) === 0) {
-            return ('Error')
+            throw TypeError('Division by 0')
         }
         return Math.round(a) / Math.round(b)
     }
-    
 
+}
   module.exports = calculateNumber;
