@@ -14,7 +14,6 @@ describe('Index Page', () => {
   it('returns incorrect result', async () => {
     const response = await request(app).get('/a');
     expect(response.status).toBe(404);
-    
-  }
- 
+    });
 });
+    
