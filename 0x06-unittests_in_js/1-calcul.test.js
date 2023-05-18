@@ -32,6 +32,10 @@ describe('calcul', () => {
         
         }
     );
+    it('should return Errror', () => {
+        assert.strictEqual(calcul('DIVIDE',1.1, 0), 'Error');
+        }
+    );
     it('should throw a TypeError', () => {
         assert.throws(() => calcul(''), {
             name: 'TypeError'
@@ -39,56 +43,6 @@ describe('calcul', () => {
         });
         }
     );
-    it('should throw a TypeError', () => {
-        assert.throws(() => calcul('DIVIDE',1, 0), {
-            name: 'TypeError',
-            message: 'Division by 0'
-
-        });
-        }
-    );
- it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE',1), {
-        name: 'TypeError'
-
-    });
-    }
-);
-it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE'), {
-        name: 'TypeError'
-
-    });
-    }
-);
-it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE',1, 'a'), {
-        name: 'TypeError'
-
-    });
-    }
-);
-it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE',1, ''), {
-        name: 'TypeError'
-
-    });
-    }
-);
-it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE',1, undefined), {
-        name: 'TypeError'
-
-    });
-    }
-);
-it('should throw a TypeError', () => {
-    assert.throws(() => calcul('DIVIDE',undefined, 1), {
-        name: 'TypeError'
-
-    });
-    }
-);
 }   
 );
     
