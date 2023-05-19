@@ -47,7 +47,7 @@ const app = http.createServer((req, res) => {
   }
 });
 
-app.listen(1246, () => {
+app.listen(1245, () => {
   console.log('Server listening on port 1245');
 });
 
