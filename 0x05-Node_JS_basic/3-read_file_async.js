@@ -17,17 +17,17 @@ function countStudents(path) {
       students.forEach((student) => {
         const fields = student.split(',');
         if (fields.length !== 4) {
-          // Skip lines with incorrect number of fields
+          // Skip lines with an incorrect number of fields
           return;
         }
         const field = fields[3].trim();
         if (!count.has(field)) {
           count.set(field, []);
         }
-        count.get(field).push(`${fields[0]}`);
+        count.get(field).push(fields[0]);
       });
 
-      for (const [field, studentsList, firstname] of count.entries()) {
+      for (const [field, studentsList] of count.entries()) {
         if (field !== 'field') {
           console.log(`Number of students in ${field}: ${studentsList.length}. List: ${studentsList.join(', ')}`);
         }
