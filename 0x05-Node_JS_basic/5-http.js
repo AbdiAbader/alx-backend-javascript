@@ -9,11 +9,12 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('This is the list of our students\n\n');
+    res.write('This is the list of our students\n');
 
     countStudents(databaseFilePath)
       .then((data) => {
         res.write(data);
+        res.end();
       })
       .catch((error) => {
         res.end(error.message);

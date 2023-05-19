@@ -11,27 +11,29 @@ function countStudents(path) {
       const students = data.split('\n');
       const totalStudents = students.length - 2;
 
-      let output = 'Number of students: ' + totalStudents + '\n';
+      console.log(`Number of students: ${totalStudents}`);
 
       const count = new Map();
       students.forEach((student) => {
         const fields = student.split(',');
-        if (fields.length === 4) {
-          const field = fields[3].trim();
-          if (!count.has(field)) {
-            count.set(field, []);
-          }
-          count.get(field).push(fields[0]);
+        if (fields.length !== 4) {
+          // Skip lines with an incorrect number of fields
+          return;
         }
+        const field = fields[3].trim();
+        if (!count.has(field)) {
+          count.set(field, []);
+        }
+        count.get(field).push(fields[0]);
       });
 
       for (const [field, studentsList] of count.entries()) {
         if (field !== 'field') {
-          output += `Number of students in ${field}: ${studentsList.length}. List: ${studentsList.join(', ')}\n`;
+          console.log(`Number of students in ${field}: ${studentsList.length}. List: ${studentsList.join(', ')}`);
         }
       }
 
-      resolve(output);
+      resolve();
     });
   });
 }
